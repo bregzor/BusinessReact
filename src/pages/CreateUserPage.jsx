@@ -12,4 +12,6 @@ export default function CreateUserPage() {
   );
 }
 
-const CreateUserWrapper = styled.div``;
+const CreateUserWrapper = styled.div`
+width:50%;
+`;

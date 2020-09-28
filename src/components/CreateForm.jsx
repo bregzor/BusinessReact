@@ -23,28 +23,25 @@ export default function CreateForm() {
     ["Orgkind", "text", orgKind, "organisationKind"],
   ];
 
-const [response, setResponse] = useState(null)
-const handleRegister = () => {
-    uKit.createUser(userfields)
-    .then(res => res.json())
-    .then(data =>  {
-      if(data.ok) {
-        setResponse("Created");
-      } else {
-        setResponse(Object.entries(data));
-      }
-    });
+  const [response, setResponse] = useState(null);
+  const handleRegister = () => {
+    uKit
+      .createUser(userfields)
+      .then((res) => res.json())
+      .then((data) => {
+        let arr = Object.entries(data);
+        setResponse(arr);
+      });
   };
 
-
-  return (  
+  return (
     <>
-    <FormListHandler
-      fields={userfields}
-      btnOnClick={handleRegister}
-      btnTitle="Create user"
-      response={response}
-    />
+      <FormListHandler
+        fields={userfields}
+        btnOnClick={handleRegister}
+        btnTitle="Create user"
+        response={response}
+      />
     </>
   );
 }

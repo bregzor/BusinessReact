@@ -6,6 +6,7 @@ export default function ActivateUser() {
 
     const {uKit, uid, token, setUid, setToken, history} = useContext(UserContext)
     const handleActivateUser = () => {
+       console.log("JA");
         uKit.activateUser(uid, token).then(() => {
           setUid(null);
           setToken(null);
