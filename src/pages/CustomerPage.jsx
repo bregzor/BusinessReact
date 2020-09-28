@@ -80,6 +80,17 @@ export default function CustomerPage(props) {
   };
 
 
+  //Deletes current customer
+  const handleDeleteThisCustomer = (id) => {
+    if (window.confirm("Are you sure?")) {
+      uKit.deleteCustomer(id).then((res) => {
+        if (res.ok) {
+          history.push("/user-page");
+        }
+      });
+    }
+  }
+
   //Renders update form or text based if inEdit boolean
   const renderTypeForm = () => {
     return !inEdit ? (
@@ -108,8 +119,8 @@ export default function CustomerPage(props) {
       <InputHeaderWrapper>
         <CustomerBigHeader>{customerName}</CustomerBigHeader>
         <ButtonContainer>
-        <DeleteButton bg={"red"} onClick={() => history.push("/user-page")}>
-            Delete
+        <DeleteButton bg={"red"} onClick={() => handleDeleteThisCustomer(id)}>
+        <IoIosRemove/>
           </DeleteButton>
           <EditButton onClick={() => setInEdit(!inEdit)}>
             <IoIosBrush />

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DeleteButton, EditButton } from "./global_styles";
-import { IoIosClose, IoIosBrush } from "react-icons/io";
+import { IoIosClose, IoIosBrush, IoIosRemove  } from "react-icons/io";
 import styled from "styled-components";
 
 export default function CustomerList({ data, handleDelete }) {
@@ -20,7 +20,7 @@ export default function CustomerList({ data, handleDelete }) {
         </CellWrapper>
           <ButtonWrapper>
           <DeleteButton id={customer.id} onClick={(e) => handleDelete(e)}>
-            <IoIosClose />
+          <IoIosRemove/>
           </DeleteButton>
           <EditButton as={Link} to={`/customer/${customer.id}`}>
             <IoIosBrush />
